@@ -63,7 +63,9 @@ allprojects {
                     }
                 }
                 task resolve {
-                    def artifacts = configurations.compile.incoming.artifactView().attributes { it.attribute(artifactType, 'size') }.artifacts
+                    def artifacts = configurations.compile.incoming.artifactView {
+                        attributes { it.attribute(artifactType, 'size') }
+                    }.artifacts
                     inputs.files artifacts.artifactFiles
                     doLast {
                         println "files 1: " + artifacts.artifactFiles.collect { it.name }
@@ -178,8 +180,12 @@ allprojects {
                 }
                 task resolve {
                     doLast {
-                        def size = configurations.compile.incoming.artifactView().attributes { it.attribute(artifactType, 'size') }.artifacts
-                        def hash = configurations.compile.incoming.artifactView().attributes { it.attribute(artifactType, 'hash') }.artifacts
+                        def size = configurations.compile.incoming.artifactView {
+                            attributes { it.attribute(artifactType, 'size') }
+                        }.artifacts
+                        def hash = configurations.compile.incoming.artifactView {
+                            attributes { it.attribute(artifactType, 'hash') }
+                        }.artifacts
                         println "files 1: " + size.collect { it.file.name }
                         println "ids 1: " + size.collect { it.id }
                         println "components 1: " + size.collect { it.id.componentIdentifier }
@@ -292,8 +298,12 @@ allprojects {
                 }
                 task resolve {
                     doLast {
-                        def size = configurations.compile.incoming.artifactView().attributes { it.attribute(artifactType, 'size') }.artifacts
-                        def hash = configurations.compile.incoming.artifactView().attributes { it.attribute(artifactType, 'hash') }.artifacts
+                        def size = configurations.compile.incoming.artifactView {
+                            attributes { it.attribute(artifactType, 'size') }
+                        }.artifacts
+                        def hash = configurations.compile.incoming.artifactView {
+                            attributes { it.attribute(artifactType, 'hash') }
+                        }.artifacts
                         println "files 1: " + size.collect { it.file.name }
                         println "files 2: " + hash.collect { it.file.name }
                     }
@@ -380,7 +390,9 @@ allprojects {
                 }
                 task resolve {
                     doLast {
-                        def values = configurations.compile.incoming.artifactView().attributes { it.attribute(artifactType, 'value') }.artifacts
+                        def values = configurations.compile.incoming.artifactView {
+                            attributes { it.attribute(artifactType, 'value') }
+                        }.artifacts
                         println "files 1: " + values.collect { it.file.name }
                         println "files 2: " + values.collect { it.file.name }
                     }
@@ -486,8 +498,12 @@ allprojects {
                 }
                 task resolve {
                     doLast {
-                        def size = configurations.compile.incoming.artifactView().attributes { it.attribute(artifactType, 'size') }.artifacts
-                        def hash = configurations.compile.incoming.artifactView().attributes { it.attribute(artifactType, 'hash') }.artifacts
+                        def size = configurations.compile.incoming.artifactView {
+                            attributes { it.attribute(artifactType, 'size') }
+                        }.artifacts
+                        def hash = configurations.compile.incoming.artifactView {
+                            attributes { it.attribute(artifactType, 'hash') }
+                        }.artifacts
                         println "files 1: " + size.collect { it.file.name }
                         println "ids 1: " + size.collect { it.id }
                         println "components 1: " + size.collect { it.id.componentIdentifier }
@@ -562,7 +578,9 @@ allprojects {
                     }
                 }
                 task resolve {
-                    def artifacts = configurations.compile.incoming.artifactView().attributes { it.attribute(artifactType, 'size') }.artifacts
+                    def artifacts = configurations.compile.incoming.artifactView {
+                        attributes { it.attribute(artifactType, 'size') }
+                    }.artifacts
                     inputs.files artifacts.artifactFiles
                     doLast {
                         println "files 1: " + artifacts.artifactFiles.collect { it.name }
@@ -655,7 +673,9 @@ allprojects {
                     }
                 }
                 task resolve {
-                    def artifacts = configurations.compile.incoming.artifactView().attributes { it.attribute(artifactType, 'size') }.artifacts
+                    def artifacts = configurations.compile.incoming.artifactView {
+                        attributes { it.attribute(artifactType, 'size') }
+                    }.artifacts
                     inputs.files artifacts.artifactFiles
                     doLast {
                         println "files: " + artifacts.artifactFiles.collect { it.name }
@@ -753,7 +773,9 @@ allprojects {
                     }
                 }
                 task resolve {
-                    def artifacts = configurations.compile.incoming.artifactView().attributes { it.attribute(artifactType, 'size') }.artifacts
+                    def artifacts = configurations.compile.incoming.artifactView {
+                        attributes { it.attribute(artifactType, 'size') }
+                    }.artifacts
                     inputs.files artifacts.artifactFiles
                     doLast {
                         println "files: " + artifacts.artifactFiles.collect { it.name }
@@ -859,7 +881,9 @@ allprojects {
                     }
                 }
                 task resolve {
-                    def artifacts = configurations.compile.incoming.artifactView().attributes { it.attribute(artifactType, 'size') }.artifacts
+                    def artifacts = configurations.compile.incoming.artifactView {
+                        attributes { it.attribute(artifactType, 'size') }
+                    }.artifacts
                     inputs.files artifacts.artifactFiles
                     doLast {
                         println "files: " + artifacts.artifactFiles.collect { it.name }
@@ -953,7 +977,9 @@ allprojects {
                     }
                 }
                 task resolve {
-                    def artifacts = configurations.compile.incoming.artifactView().attributes { it.attribute(artifactType, 'size') }.artifacts
+                    def artifacts = configurations.compile.incoming.artifactView {
+                        attributes { it.attribute(artifactType, 'size') }
+                    }.artifacts
                     inputs.files artifacts.artifactFiles
                     doLast {
                         println "files: " + artifacts.artifactFiles.collect { it.name }
@@ -1053,7 +1079,9 @@ allprojects {
                     resolutionStrategy.cacheChangingModulesFor(0, "seconds")
                 }
                 task resolve {
-                    def artifacts = configurations.compile.incoming.artifactView().attributes { it.attribute(artifactType, 'size') }.artifacts
+                    def artifacts = configurations.compile.incoming.artifactView {
+                        attributes { it.attribute(artifactType, 'size') }
+                    }.artifacts
                     inputs.files artifacts.artifactFiles
                     doLast {
                         println "files: " + artifacts.artifactFiles.collect { it.name }
